@@ -1,6 +1,6 @@
 package com.kindsonthegenius.fleetmsv2.fleet.models;
 
-import com.kindsonthegenius.fleetapp_v2.parameters.models.CommonObject;
+import com.kindsonthegenius.fleetmsv2.parameters.models.CommonObject;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

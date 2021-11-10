@@ -1,6 +1,6 @@
 package com.kindsonthegenius.fleetmsv2.hr.repositories;
 
-import com.kindsonthegenius.fleetapp_v2.hr.models.Employee;
+import com.kindsonthegenius.fleetmsv2.hr.models.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

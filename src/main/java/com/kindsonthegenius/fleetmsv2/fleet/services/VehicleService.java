@@ -1,7 +1,7 @@
 package com.kindsonthegenius.fleetmsv2.fleet.services;
 
-import com.kindsonthegenius.fleetapp_v2.fleet.models.Vehicle;
-import com.kindsonthegenius.fleetapp_v2.fleet.repositories.VehicleRepository;
+import com.kindsonthegenius.fleetmsv2.fleet.models.Vehicle;
+import com.kindsonthegenius.fleetmsv2.fleet.repositories.VehicleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

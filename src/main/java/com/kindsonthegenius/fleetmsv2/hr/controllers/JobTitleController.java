@@ -1,7 +1,7 @@
 package com.kindsonthegenius.fleetmsv2.hr.controllers;
 
-import com.kindsonthegenius.fleetapp_v2.hr.models.JobTitle;
-import com.kindsonthegenius.fleetapp_v2.hr.services.JobTitleService;
+import com.kindsonthegenius.fleetmsv2.hr.models.JobTitle;
+import com.kindsonthegenius.fleetmsv2.hr.services.JobTitleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

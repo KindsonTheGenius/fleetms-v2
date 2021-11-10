@@ -1,7 +1,7 @@
 package com.kindsonthegenius.fleetmsv2.hr.services;
 
-import com.kindsonthegenius.fleetapp_v2.hr.models.EmployeeType;
-import com.kindsonthegenius.fleetapp_v2.hr.repositories.EmployeeTypeRepository;
+import com.kindsonthegenius.fleetmsv2.hr.models.EmployeeType;
+import com.kindsonthegenius.fleetmsv2.hr.repositories.EmployeeTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

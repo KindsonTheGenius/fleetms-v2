@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="_layout">
+<body>
+
+<div layout:fragment="content">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header"><i class="fa fa fa-bars"></i> Parameters</h3>
+                <ol class="breadcrumb">
+                    <li><i class="fa fa-home"></i><a href="/index">Home</a></li>
+                    <li><i class="fa fa-bars"></i><a href="/parameters">Parameters</a></li>
+                    <li><i class="fa fa-square-o"></i>Parameters</li>
+                </ol>
+            </div>
+        </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <section class="panel" style="margin-bottom: 0px;">
+
+                <div class="panel-body">
+                    <a href="/parameters/countryAdd" class="btn btn-primary">
+                        Add New Country
+                    </a>
+                </div>
+            </section>
+            <section class="panel">
+                <header class="panel-heading">
+                    Countries List
+                </header>
+
+                <table class="table table-striped table-advance table-hover">
+                    <tbody>
+                    <tr>
+                        <th></th>
+                        <th><i class="icon_profile"></i> Description</th>
+                        <th><i class="icon_calendar"></i> Capital</th>
+                        <th><i class="icon_mail_alt"></i> Code</th>
+                        <th><i class="icon_pin_alt"></i> Nationality</th>
+                        <th><i class="icon_mobile"></i> Continent</th>
+                        <th><i class="icon_cogs"></i> Action</th>
+                    </tr>
+                    <tr th:each="country:${countries}">
+                        <td><i class="fa fa-table"></i></td>
+                        <td th:text="${country.description}"></td>
+                        <td th:text="${country.capital}"></td>
+                        <td th:text="${country.code}"></td>
+                        <td th:text="${country.nationality}"></td>
+                        <td th:text="${country.continent}"></td>
+                        <td>
+                            <div class="btn-group">
+                                <a class="btn btn-primary" th:href="@{'/parameters/country/Details/'+${country.id}}">
+                                    <i class="icon_document_alt"></i></a>
+                                <a class="btn btn-success"
+                                   th:href="@{'/parameters/country/Edit/'+${country.id}}">
+                                    <i class="icon_pencil-edit"></i></a>
+                                <a class="btn btn-danger"
+                                   onclick="return confirm('Are you sure you want to delete this record?')"
+                                   th:href="@{'/parameters/countries/delete/'+${country.id}}">
+                                    <i class="icon_close_alt2"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </div>
+    <!--Content of the page-->
+    </section>
+</div>
+
+
+</body>
+</html>

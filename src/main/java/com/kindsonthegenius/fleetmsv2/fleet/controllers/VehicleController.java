@@ -1,9 +1,9 @@
 package com.kindsonthegenius.fleetmsv2.fleet.controllers;
 
-import com.kindsonthegenius.fleetapp_v2.fleet.models.Vehicle;
-import com.kindsonthegenius.fleetapp_v2.fleet.services.*;
-import com.kindsonthegenius.fleetapp_v2.hr.services.EmployeeService;
-import com.kindsonthegenius.fleetapp_v2.parameters.services.LocationService;
+import com.kindsonthegenius.fleetmsv2.fleet.models.Vehicle;
+import com.kindsonthegenius.fleetmsv2.fleet.services.*;
+import com.kindsonthegenius.fleetmsv2.hr.services.EmployeeService;
+import com.kindsonthegenius.fleetmsv2.parameters.services.LocationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

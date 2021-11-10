@@ -1,5 +1,6 @@
 package com.kindsonthegenius.fleetmsv2.hr.services;
 
+import com.kindsonthegenius.fleetmsv2.hr.models.Employee;
 import com.kindsonthegenius.fleetmsv2.hr.repositories.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,9 +12,6 @@ public class EmployeeService {
 		
 	@Autowired
 	private EmployeeRepository employeeRepository;
-
-	@Autowired
-	UserRepository userRepository;
 	
 	//Get All Employees
 	public List<Employee> findAll(){
@@ -45,19 +43,5 @@ public class EmployeeService {
 		return employeeRepository.findByKeyword(keyword);
 	}
 
-	//Set the Username of the employee where firstname and lastname match
-	public void assignUsername(int id){
-		Employee employee = employeeRepository.findById(id).orElse(null);
-		try {
-			User user = userRepository.findByFirstnameAndLastname(
-					employee.getFirstname(),
-					employee.getLastname());
-			System.out.println(user);
-			employee.setUsername(user.getUsername());
-			employeeRepository.save(employee);
-		}
-		catch (Exception ex){
 
-		}
-	}
 }

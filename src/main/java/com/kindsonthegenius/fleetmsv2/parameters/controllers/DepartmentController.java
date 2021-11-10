@@ -1,8 +1,8 @@
 package com.kindsonthegenius.fleetmsv2.parameters.controllers;
 
-import com.kindsonthegenius.fleetapp_v2.hr.services.EmployeeService;
-import com.kindsonthegenius.fleetapp_v2.parameters.models.Department;
-import com.kindsonthegenius.fleetapp_v2.parameters.services.DepartmentService;
+import com.kindsonthegenius.fleetmsv2.hr.services.EmployeeService;
+import com.kindsonthegenius.fleetmsv2.parameters.models.Department;
+import com.kindsonthegenius.fleetmsv2.parameters.services.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

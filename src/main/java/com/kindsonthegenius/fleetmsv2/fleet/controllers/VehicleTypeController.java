@@ -1,7 +1,7 @@
 package com.kindsonthegenius.fleetmsv2.fleet.controllers;
 
-import com.kindsonthegenius.fleetapp_v2.fleet.models.VehicleType;
-import com.kindsonthegenius.fleetapp_v2.fleet.services.VehicleTypeService;
+import com.kindsonthegenius.fleetmsv2.fleet.models.VehicleType;
+import com.kindsonthegenius.fleetmsv2.fleet.services.VehicleTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

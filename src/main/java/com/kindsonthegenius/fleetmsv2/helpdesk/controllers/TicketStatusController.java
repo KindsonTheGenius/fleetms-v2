@@ -1,7 +1,7 @@
 package com.kindsonthegenius.fleetmsv2.helpdesk.controllers;
 
-import com.kindsonthegenius.fleetapp_v2.helpdesk.models.TicketStatus;
-import com.kindsonthegenius.fleetapp_v2.helpdesk.services.TicketStatusService;
+import com.kindsonthegenius.fleetmsv2.helpdesk.models.TicketStatus;
+import com.kindsonthegenius.fleetmsv2.helpdesk.services.TicketStatusService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

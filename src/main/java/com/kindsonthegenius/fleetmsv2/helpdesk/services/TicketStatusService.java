@@ -1,7 +1,7 @@
 package com.kindsonthegenius.fleetmsv2.helpdesk.services;
 
-import com.kindsonthegenius.fleetapp_v2.helpdesk.models.TicketStatus;
-import com.kindsonthegenius.fleetapp_v2.helpdesk.repositories.TicketStatusRepository;
+import com.kindsonthegenius.fleetmsv2.helpdesk.models.TicketStatus;
+import com.kindsonthegenius.fleetmsv2.helpdesk.repositories.TicketStatusRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

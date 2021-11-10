@@ -2,8 +2,8 @@ package com.kindsonthegenius.fleetmsv2.fleet.models;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import com.kindsonthegenius.fleetapp_v2.hr.models.Employee;
-import com.kindsonthegenius.fleetapp_v2.parameters.models.Location;
+import com.kindsonthegenius.fleetmsv2.hr.models.Employee;
+import com.kindsonthegenius.fleetmsv2.parameters.models.Location;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

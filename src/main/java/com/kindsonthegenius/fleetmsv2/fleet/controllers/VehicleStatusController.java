@@ -1,7 +1,7 @@
 package com.kindsonthegenius.fleetmsv2.fleet.controllers;
 
-import com.kindsonthegenius.fleetapp_v2.fleet.models.VehicleStatus;
-import com.kindsonthegenius.fleetapp_v2.fleet.services.VehicleStatusService;
+import com.kindsonthegenius.fleetmsv2.fleet.models.VehicleStatus;
+import com.kindsonthegenius.fleetmsv2.fleet.services.VehicleStatusService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

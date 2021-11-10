@@ -1,11 +1,11 @@
 package com.kindsonthegenius.fleetmsv2.fleet.models;
 
-import com.kindsonthegenius.fleetapp_v2.parameters.models.Client;
-import com.kindsonthegenius.fleetapp_v2.parameters.models.Location;
-import com.kindsonthegenius.fleetapp_v2.security.models.Auditable;
+import com.kindsonthegenius.fleetmsv2.parameters.models.Client;
+import com.kindsonthegenius.fleetmsv2.parameters.models.Location;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.domain.Auditable;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -15,7 +15,7 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class VehicleHire extends Auditable<String> {
+public class VehicleHire {
 		
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

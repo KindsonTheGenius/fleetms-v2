@@ -1,6 +1,6 @@
 package com.kindsonthegenius.fleetmsv2.accounts.repositories;
 
-import com.kindsonthegenius.fleetapp_v2.accounts.models.InvoiceStatus;
+import com.kindsonthegenius.fleetmsv2.accounts.models.InvoiceStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

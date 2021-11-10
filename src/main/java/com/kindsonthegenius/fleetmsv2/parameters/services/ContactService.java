@@ -1,7 +1,7 @@
 package com.kindsonthegenius.fleetmsv2.parameters.services;
 
-import com.kindsonthegenius.fleetapp_v2.parameters.models.Contact;
-import com.kindsonthegenius.fleetapp_v2.parameters.repositories.ContactRepository;
+import com.kindsonthegenius.fleetmsv2.parameters.models.Contact;
+import com.kindsonthegenius.fleetmsv2.parameters.repositories.ContactRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

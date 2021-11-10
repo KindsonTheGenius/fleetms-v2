@@ -1,7 +1,7 @@
 package com.kindsonthegenius.fleetmsv2.accounts.controllers;
 
-import com.kindsonthegenius.fleetapp_v2.accounts.models.TransactionType;
-import com.kindsonthegenius.fleetapp_v2.accounts.services.TransactionTypeService;
+import com.kindsonthegenius.fleetmsv2.accounts.models.TransactionType;
+import com.kindsonthegenius.fleetmsv2.accounts.services.TransactionTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

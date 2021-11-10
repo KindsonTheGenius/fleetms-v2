@@ -2,10 +2,10 @@ package com.kindsonthegenius.fleetmsv2.accounts.models;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import com.kindsonthegenius.fleetapp_v2.hr.models.Employee;
-import com.kindsonthegenius.fleetapp_v2.parameters.models.Client;
-import com.kindsonthegenius.fleetapp_v2.parameters.models.Contact;
-import com.kindsonthegenius.fleetapp_v2.parameters.models.Supplier;
+import com.kindsonthegenius.fleetmsv2.hr.models.Employee;
+import com.kindsonthegenius.fleetmsv2.parameters.models.Client;
+import com.kindsonthegenius.fleetmsv2.parameters.models.Contact;
+import com.kindsonthegenius.fleetmsv2.parameters.models.Supplier;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.springframework.format.annotation.DateTimeFormat;

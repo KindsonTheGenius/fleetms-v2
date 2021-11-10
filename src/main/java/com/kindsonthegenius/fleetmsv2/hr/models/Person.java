@@ -1,7 +1,7 @@
 package com.kindsonthegenius.fleetmsv2.hr.models;
 
-import com.kindsonthegenius.fleetapp_v2.parameters.models.Country;
-import com.kindsonthegenius.fleetapp_v2.parameters.models.State;
+import com.kindsonthegenius.fleetmsv2.parameters.models.Country;
+import com.kindsonthegenius.fleetmsv2.parameters.models.State;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

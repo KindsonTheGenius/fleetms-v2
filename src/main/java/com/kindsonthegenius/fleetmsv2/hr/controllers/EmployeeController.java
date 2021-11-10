@@ -1,11 +1,11 @@
 package com.kindsonthegenius.fleetmsv2.hr.controllers;
 
-import com.kindsonthegenius.fleetapp_v2.hr.models.Employee;
-import com.kindsonthegenius.fleetapp_v2.hr.services.EmployeeService;
-import com.kindsonthegenius.fleetapp_v2.hr.services.EmployeeTypeService;
-import com.kindsonthegenius.fleetapp_v2.hr.services.JobTitleService;
-import com.kindsonthegenius.fleetapp_v2.parameters.services.CountryService;
-import com.kindsonthegenius.fleetapp_v2.parameters.services.StateService;
+import com.kindsonthegenius.fleetmsv2.hr.models.Employee;
+import com.kindsonthegenius.fleetmsv2.hr.services.EmployeeService;
+import com.kindsonthegenius.fleetmsv2.hr.services.EmployeeTypeService;
+import com.kindsonthegenius.fleetmsv2.hr.services.JobTitleService;
+import com.kindsonthegenius.fleetmsv2.parameters.services.CountryService;
+import com.kindsonthegenius.fleetmsv2.parameters.services.StateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
