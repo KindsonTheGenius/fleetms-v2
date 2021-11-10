@@ -1,6 +1,7 @@
 package com.kindsonthegenius.fleetmsv2.security.controllers;
 import com.kindsonthegenius.fleetapp_v2.security.models.Role;
 import com.kindsonthegenius.fleetapp_v2.security.services.RoleService;
+import com.kindsonthegenius.fleetmsv2.security.services.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
