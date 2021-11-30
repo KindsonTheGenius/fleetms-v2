@@ -274,11 +274,11 @@
           <!-- alert notification end-->
           <!-- user login dropdown start-->
             <li class="dropdown">
-                <a sec:authorize="isAuthenticated()" data-toggle="dropdown" class="dropdown-toggle" th:href="@{'/img/photos/' + ${#authentication.getPrincipal().getUsername()} +'.jpg'}">
-                <span class="profile-ava">
-                    <img alt="" th:src="@{'/img/photos/' + ${#authentication.getPrincipal().getUsername()} +'.jpg'}" height="38" width="38">
-                </span>
-                    <span class="username" sec:authentication="name">User</span>
+                <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="profile-ava">
+                                <img alt="" src="img/avatar1_small.jpg">
+                            </span>
+                    <span class="username">Jenifer Smith</span>
                     <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu extended logout">

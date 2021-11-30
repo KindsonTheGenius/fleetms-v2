@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="_layout">
+
+<body>
+
+<div layout:fragment="content">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header"><i class="fa fa fa-bars"></i> Parameters</h3>
+                <ol class="breadcrumb">
+                    <li><i class="fa fa-home"></i><a href="/index">Home</a></li>
+                    <li><i class="fa fa-bars"></i><a href="/parameters">Parameters</a></li>
+                    <li><i class="fa fa-square-o"></i>Parameters</li>
+                </ol>
+            </div>
+        </div>
+    <div class="container" style="width: 70%">
+        <div class="row justify-content-center" >
+            <form class="form-horizontal">
+                <section class="panel">
+                    <header class="panel-heading">
+                        Details Location Record
+                    </header>
+                    <div class="panel-body">
+                        <div style="padding:10px">
+                            <div class="form-group row">
+                                <label class="col-form-label col-sm-4">Id:</label>
+                                <div class="col-sm-6">
+                                    <input type="text" th:value="${location.id}" class="form-control" name="id" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-sm-4">Description:</label>
+                                <div class="col-sm-6">
+                                    <input type="text" th:value="${location.description}" class="form-control" readonly name="description">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="cityAdd" class="col-form-label col-sm-4">City:</label>
+                                <div class="col-sm-6">
+                                    <input type="text" th:value="${location.city}" class="form-control" id="cityAdd" readonly name="city">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="detailsAdd" class="col-form-label col-sm-4">Address:</label>
+                                <div class="col-sm-6">
+                                    <textarea type="text" th:field="${location.address}" class="form-control" id="addressAdd" name="address"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="ddlCountryAdd" class="col-form-label col-sm-4">Country: </label>
+                                <div class="col-sm-6">
+                                    <select class="form-control" id="ddlCountryAdd" name="countryid">
+                                        <option th:value="${null}">-SELECT-</option>
+                                        <option th:each="country : ${countries}"
+                                                th:value="${country.id}"
+                                                th:selected="${country.id} == ${location.countryid}?True: False"
+                                                th:text="${country.description}">
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="ddlStateAdd" class="col-form-label col-sm-4">State: </label>
+                                <div class="col-sm-6">
+                                    <select class="form-control" id="ddlStateAdd" name="stateid">
+                                        <option th:value="${null}">-SELECT-</option>
+                                        <option th:each="state : ${states}"
+                                                th:value="${state.id}"
+                                                th:selected="${state.id} == ${location.stateid}?True: False"
+                                                th:text="${state.name}">
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="detailsAdd" class="col-form-label col-sm-4">Details:</label>
+                                <div class="col-sm-6">
+                                    <textarea type="text" th:field="${location.details}" class="form-control" id="detailsAdd" name="details"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="panel">
+                    <div class="panel-body">
+                        <a th:href="@{'/parameters/location/Edit/'+${location.id}}" type="submit" class="btn btn-primary">
+                            Edit Record
+                        </a>
+                        <a href="/parameters/locations" class="btn  btn-warning">
+                            Exit
+                        </a>
+                    </div>
+                </section>
+            </form>
+        </div>
+    </div>
+    </section>
+</div>
+
+</body>
+</html>

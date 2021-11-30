@@ -10,25 +10,25 @@ import java.util.Optional;
 
 @Service
 public class ClientService {
-	
+
 	@Autowired
 	private ClientRepository clientRepository;
-	
+
 	//Get All Clients
 	public List<Client> findAll(){
 		return clientRepository.findAll();
-	}	
-	
+	}
+
 	//Get Client By Id
-	public Optional<Client> findById(int id) {
-		return clientRepository.findById(id);
-	}	
-	
+	public Client findById(int id) {
+		return clientRepository.findById(id).orElse(null);
+	}
+
 	//Delete Client
-	public void delete(int id) {
+	public void deleteById(int id) {
 		clientRepository.deleteById(id);
 	}
-	
+
 	//Update Client
 	public void save( Client client) {
 		clientRepository.save(client);

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="_layout">
+
+<body>
+
+<div layout:fragment="content">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header"><i class="fa fa fa-bars"></i> Parameters</h3>
+                <ol class="breadcrumb">
+                    <li><i class="fa fa-home"></i><a href="/index">Home</a></li>
+                    <li><i class="fa fa-bars"></i><a href="/parameters">Parameters</a></li>
+                    <li><i class="fa fa-square-o"></i>Parameters</li>
+                </ol>
+            </div>
+        </div>
+    <div class="container" style="width: 70%">
+        <div class="row justify-content-center" >
+            <div class="col-lg-12">
+                <form class="form-horizontal" th:action="@{/parameters/contacts}" method="post">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            Add New Countact Record
+                        </header>
+                        <div class="panel-body">
+                            <div class="form-group row">
+                                <label for="txtIdAdd" class="col-form-label col-sm-4">Id:</label>
+                                <div class="col-sm-6">
+                                    <input type="text" th:value="${contact.id}"  class="form-control" id="txtIdAdd" disabled>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="txtFirstnameAdd" class="col-form-label col-sm-4">Firstname:</label>
+                                <div class="col-sm-6">
+                                    <input type="text" th:value="${contact.firstname}"  class="form-control" id="txtFirstnameAdd" name="firstname" disabled>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="txtLastNameAdd" class="col-form-label col-sm-4">Lastname:</label>
+                                <div class="col-sm-6">
+                                    <input type="text" th:value="${contact.lastname}"  class="form-control" id="txtLastNameAdd" name="lastname" disabled>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="txtEmailAdd" class="col-form-label col-sm-4">Email:</label>
+                                <div class="col-sm-6">
+                                    <input type="text" th:value="${contact.email}"  class="form-control" id="txtEmailAdd" name="email" disabled>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="txtMobileAdd" class="col-form-label col-sm-4">Mobile:</label>
+                                <div class="col-sm-6">
+                                    <input type="text" th:value="${contact.mobile}"  class="form-control" id="txtMobileAdd" name="mobile" disabled>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="txtPhoneAdd" class="col-form-label col-sm-4">Phone:</label>
+                                <div class="col-sm-6">
+                                    <input type="text" th:value="${contact.phone}"  class="form-control" id="txtPhoneAdd" name="phone" disabled>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="txtRemarksAdd" class="col-form-label col-sm-4">Remarks:</label>
+                                <div class="col-sm-6">
+                                    <input type="text" th:value="${contact.remarks}"  class="form-control" id="txtRemarksAdd" name="remarks">
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="panel">
+
+                        <div class="panel-body">
+                            <button type="submit" class="btn btn-primary" disabled>
+                                Save
+                            </button>
+                            <a href="/parameters/contacts" class="btn  btn-warning">
+                                Exit
+                            </a>
+                        </div>
+                    </section>
+                </form>
+            </div>
+        </div>
+    </div>
+    </section>
+</div>
+
+</body>
+</html>

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class LocationController {
-	
+
 	@Autowired	private LocationService locationService;
 	@Autowired	private CountryService countryService;
 	@Autowired	private StateService stateService;
@@ -22,7 +22,7 @@ public class LocationController {
 		model.addAttribute("states", stateService.findAll());
 		return model;
 	}
-	
+
 	@GetMapping("/parameters/locations")
 	public String findAll(Model model){
 		addModelAttributes(model);
@@ -31,7 +31,7 @@ public class LocationController {
 
 	@GetMapping("/parameters/locationAdd")
 	public String addLocation(Model model){
-		addModelAttributes(model);
+		model.addAttribute("countries", countryService.findAll());
 		return "parameters/locationAdd";
 	}
 
@@ -49,8 +49,8 @@ public class LocationController {
 		locationService.save(location);
 		return "redirect:/parameters/locations";
 	}
-	
-	@RequestMapping(value="/delete", method = {RequestMethod.DELETE, RequestMethod.GET})	
+
+	@RequestMapping(value="/parameters/location/delete", method = {RequestMethod.DELETE, RequestMethod.GET})
 	public String deleteById(@PathVariable Integer id) {
 		locationService.deleteById(id);
 		return "redirect:/parameters/locations";

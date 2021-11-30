@@ -10,7 +10,7 @@ import java.util.List;
 
 @Service
 public class LocationService {
-	
+
 	@Autowired
 	private LocationRepository locationRepository;
 
@@ -21,16 +21,16 @@ public class LocationService {
 	public Location findById(Integer id) {
 		return locationRepository.findById(id).orElse(null);
 	}
-	
+
 	public void save(Location location) {
 		locationRepository.save(location);
 	}
-	
+
 	public void deleteById(Integer id) {
 		locationRepository.deleteById(id);
 	}
 
 	public List<Location> findByDescriptionContaining(String description) {
 		return null;
-	}	
+	}
 }

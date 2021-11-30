@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="_layout">
+
+<body>
+
+<div layout:fragment="content">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header"><i class="fa fa fa-bars"></i> Parameters</h3>
+                <ol class="breadcrumb">
+                    <li><i class="fa fa-home"></i><a href="/index">Home</a></li>
+                    <li><i class="fa fa-bars"></i><a href="/parameters">Parameters</a></li>
+                    <li><i class="fa fa-square-o"></i>Parameters</li>
+                </ol>
+            </div>
+        </div>
+        <div class="container" style="width: 70%">
+        <div class="row">
+            <form class="form-horizontal" th:action="@{/parameters/states}" method="post">
+            <div class="col-lg-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        Add New State Record
+                    </header>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label class="control-label col-sm-4">Country: </label>
+                            <div class="col-sm-6">
+                                <select class="form-control" id="ddlCountryAdd" name="countryid">
+                                    <option>-SELECT-</option>
+                                    <option th:each="country : ${countries}"
+                                            th:value="${country.id}"
+                                            th:text="${country.description}">
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Name</label>
+                                <div class="col-sm-6">
+                                    <input name="name" type="text"class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Capital</label>
+                                <div class="col-sm-6">
+                                    <input name="capital" class="form-control" size="16" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4"> Code</label>
+                                <div class="col-sm-6">
+                                    <input name="code" type="text" class=" form-control" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Details</label>
+                                <div class="col-sm-5">
+                                    <input name="details" type="text" class="form-control">
+                                </div>
+                            </div>
+                    </div>
+                </section>
+
+                <section class="panel">
+                    <div class="panel-body">
+                        <button type="submit"  class="btn btn-success">Save</button>
+                        <a href="/states" class="btn btn-warning">Exit</a>
+                    </div>
+                </section>
+
+            </div>
+
+            </form>
+        </div>
+        </div>
+    </section>
+</div>
+</body>
+</html>

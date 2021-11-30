@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="_layout">
+
+<body>
+
+<div layout:fragment="content">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header"><i class="fa fa fa-bars"></i> Parameters</h3>
+                <ol class="breadcrumb">
+                    <li><i class="fa fa-home"></i><a href="/index">Home</a></li>
+                    <li><i class="fa fa-bars"></i><a href="/parameters">Parameters</a></li>
+                    <li><i class="fa fa-square-o"></i>Parameters</li>
+                </ol>
+            </div>
+        </div>
+    <div class="container" style="width: 70%">
+        <div class="row justify-content-center" >
+            <div class="col-lg-12">
+                <form class="form-horizontal" th:action="@{/parameters/suppliers}" method="post">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            Edit Client Record
+                        </header>
+                        <div class="panel-body">
+                            <div class="col-lg-6">
+                                <div class="form-group row">
+                                    <label for="txtIdAdd" class="col-sm-4 col-form-label">Id: </label>
+                                    <div class="col-sm-6">
+                                        <input type="text"  th:value="${supplier.id}"  class="form-control" id="txtIdAdd" name="id" placeholder="Id" readonly>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="txtNameAdd" class="col-sm-4 col-form-label">Name: </label>
+                                    <div class="col-sm-6">
+                                        <input type="text" th:value="${supplier.name}" class="form-control" id="txtNameAdd" name="name" placeholder="Name">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="txtEmailAdd" class="col-sm-4 col-form-label">Email</label>
+                                    <div class="col-sm-6">
+                                        <input type="email" th:value="${supplier.email}" class="form-control" id="txtEmailAdd" name="email" placeholder="Email">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="txtWebsiteAdd" class="col-sm-4 col-form-label">website: </label>
+                                    <div class="col-sm-6">
+                                        <input type="text" th:value="${supplier.website}" class="form-control" id="txtWebsiteAdd" name="website" placeholder="Website">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="txtAddressAdd" class="col-sm-4 col-form-label">Address</label>
+                                    <div class="col-sm-6">
+                                        <textarea class="form-control" th:value="${supplier.address}" id="txtAddressAdd" name="address" placeholder="Address" rows="2"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group row">
+                                    <label for="ddlCountryAdd" class="col-sm-4 col-form-label">Country: </label>
+                                    <div class="col-sm-6">
+                                        <select class="form-control" id="ddlCountryAdd" name="countryid">
+                                            <option>-SELECT-</option>
+                                            <option th:each="country : ${countries}"
+                                                    th:value="${country.id}"
+                                                    th:selected="${country.id} == ${supplier.countryid}?True: False"
+                                                    th:text="${country.description}">
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="ddlStateAdd" class="col-sm-4 col-form-label">State/Province: </label>
+                                    <div class="col-sm-6">
+                                        <select class="form-control" id="ddlStateAdd" name="stateid">
+                                            <option>-SELECT-</option>
+                                            <option th:each="state : ${states}"
+                                                    th:value="${state.id}"
+                                                    th:selected="${state.id} == ${supplier.countryid}?True: False"
+                                                    th:text="${state.name}">
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="txtCityAdd" class="col-sm-4 col-form-label">City: </label>
+                                    <div class="col-sm-6">
+                                        <input type="text" th:value="${supplier.city}" class="form-control" id="txtCityAdd" name="city" placeholder="City">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="txtPhoneAdd" class="col-sm-4 col-form-label">Phone: </label>
+                                    <div class="col-sm-6">
+                                        <input type="text" th:value="${supplier.phone}" class="form-control" id="txtPhoneAdd" name="phone" placeholder="Phone">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="txtMobileAdd" class="col-sm-4 col-form-label">Mobile: </label>
+                                    <div class="col-sm-6">
+                                        <input type="text" th:value="${supplier.mobile}" class="form-control" id="txtMobileAdd" name="mobile" placeholder="Mobile">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="txtDetailsAdd" class="col-sm-4 col-form-label">Details.: </label>
+                                    <div class="col-sm-6">
+                                        <input type="text" th:value="${supplier.details}" class="form-control" id="txtDetailsAdd" name="details" placeholder="Details">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="panel">
+
+                        <div class="panel-body">
+                            <button type="submit" class="btn btn-primary">
+                                Save
+                            </button>
+                            <a href="/parameters/suppliers" class="btn  btn-warning">
+                                Exit
+                            </a>
+                        </div>
+                    </section>
+                </form>
+            </div>
+        </div>
+    </div>
+    </section>
+</div>
+
+</body>
+</html>

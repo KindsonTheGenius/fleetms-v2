@@ -1,16 +1,19 @@
 package com.kindsonthegenius.fleetmsv2.parameters.controllers;
 
 import com.kindsonthegenius.fleetmsv2.parameters.models.State;
+import com.kindsonthegenius.fleetmsv2.parameters.models.State;
 import com.kindsonthegenius.fleetmsv2.parameters.services.CountryService;
+import com.kindsonthegenius.fleetmsv2.parameters.services.StateService;
 import com.kindsonthegenius.fleetmsv2.parameters.services.StateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 public class StateController {
-	
 	@Autowired private StateService stateService;
 	@Autowired private CountryService countryService;
 
@@ -46,10 +49,11 @@ public class StateController {
 		stateService.save(state);
 		return "redirect:/parameters/states";
 	}
-	
+
 	@RequestMapping(value="/parameters/states/delete/{id}", method = {RequestMethod.DELETE, RequestMethod.GET})
 	public String delete(@PathVariable Integer id) {
 		stateService.delete(id);
 		return "redirect:/parameters/states";
 	}
+
 }

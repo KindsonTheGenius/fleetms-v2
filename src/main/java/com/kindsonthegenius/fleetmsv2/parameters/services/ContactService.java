@@ -20,8 +20,8 @@ public class ContactService {
 	}	
 	
 	//Get Contact By Id
-	public Optional<Contact> findById(int id) {
-		return contactRepository.findById(id);
+	public Contact findById(int id) {
+		return contactRepository.findById(id).orElse(null);
 	}	
 	
 	//Delete Contact
