@@ -21,9 +21,22 @@
             <section class="panel" style="margin-bottom: 0px;">
 
                 <div class="panel-body">
-                    <a href="/parameters/countryAdd" class="btn btn-primary">
-                        Add New Country
-                    </a>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <a href="/parameters/countryAdd" class="btn btn-primary">
+                                Add New Country
+                            </a>
+                        </div>
+                        <form th:action="@{/parameters/countries}" >
+                            <div class="col-lg-3">
+                                <input type="text" name="keyword" class="form-control">
+                            </div>
+                            <div class="col-lg-3">
+                                <input type="submit" class="btn-success form-control">
+                            </div>
+                        </form>
+                    </div>
+
                 </div>
             </section>
             <section class="panel">
@@ -35,11 +48,11 @@
                     <tbody>
                     <tr>
                         <th></th>
-                        <th><i class="icon_profile"></i> Description</th>
-                        <th><i class="icon_calendar"></i> Capital</th>
-                        <th><i class="icon_mail_alt"></i> Code</th>
-                        <th><i class="icon_pin_alt"></i> Nationality</th>
-                        <th><i class="icon_mobile"></i> Continent</th>
+                        <th><i class="icon_profile"></i> <a th:href="@{'/parameters/countries/description?sortDir=' + ${reverseSortDir}}">Description</a></th>
+                        <th><i class="icon_calendar"></i> <a th:href="@{'/parameters/countries/capital?sortDir=' + ${reverseSortDir}}">Capital</a></th>
+                        <th><i class="icon_mail_alt"></i> <a th:href="@{'/parameters/countries/code?sortDir=' + ${reverseSortDir}}">Code</a></th>
+                        <th><i class="icon_pin_alt"></i> <a th:href="@{'/parameters/countries/nationality?sortDir=' + ${reverseSortDir}}">Nationality</a></th>
+                        <th><i class="icon_mobile"></i> <a th:href="@{'/parameters/countries/continent?sortDir=' + ${reverseSortDir}}">Continent</a></th>
                         <th><i class="icon_cogs"></i> Action</th>
                     </tr>
                     <tr th:each="country:${countries}">
