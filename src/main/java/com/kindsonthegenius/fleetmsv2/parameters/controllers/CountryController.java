@@ -3,6 +3,7 @@ package com.kindsonthegenius.fleetmsv2.parameters.controllers;
 import com.kindsonthegenius.fleetmsv2.parameters.models.Country;
 import com.kindsonthegenius.fleetmsv2.parameters.services.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -16,13 +17,35 @@ public class CountryController {
     @Autowired
     private CountryService countryService;
 
+//    @GetMapping("/parameters/countries")
+//    public String  getAll(Model model, String keyword){
+//        List<Country> countries;
+//        countries = keyword == null? countryService.findAll():countryService.findByKeyword(keyword);
+//        model.addAttribute("countries", countries);
+//        return "/parameters/countries";
+//    }
+
     @GetMapping("/parameters/countries")
-    public String  getAll(Model model, String keyword){
-        List<Country> countries;
-        countries = keyword == null? countryService.findAll():countryService.findByKeyword(keyword);
+    public String getAllPages(Model model){
+        return getOnePage(model, 1);
+    }
+
+    @GetMapping("/parameters/countries/page/{pageNumber}")
+    public String  getOnePage(Model model, @PathVariable("pageNumber") int currentPage){
+        Page<Country> page = countryService.findPage(currentPage);
+        int totalPages = page.getTotalPages();
+        long totalItems = page.getTotalElements();
+        List<Country> countries = page.getContent();
+
+        model.addAttribute("currentPage", currentPage);
+        model.addAttribute("totalPages", totalPages);
+        model.addAttribute("totalItems", totalItems);
         model.addAttribute("countries", countries);
+
         return "/parameters/countries";
     }
+
+
 
     @GetMapping("/parameters/countries/{field}")
     public String  getAllWithSort(Model model,
