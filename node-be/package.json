@@ -1,0 +1,15 @@
+{
+  "name": "be",
+  "version": "1.0.0",
+  "description": "Node Backend for FleetMS v2",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kindson",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.2",
+    "mysql": "^2.18.1"
+  }
+}
