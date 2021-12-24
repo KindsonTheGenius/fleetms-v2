@@ -45,18 +45,23 @@ public class CountryController {
         return "/parameters/countries";
     }
 
+    @GetMapping("/parameters/countries/page/{pageNumber}/{field}")
+    public String getPageWithSort(Model model,
+                                  @PathVariable("pageNumber") int currentPage,
+                                  @PathVariable String field,
+                                  @PathParam("sortDir") String sortDir) {
 
+        Page<Country> page = countryService.findAllWithSort(field, sortDir, currentPage);
+        List<Country> countries = page.getContent();
+        int totalPages = page.getTotalPages();
+        long totalItems = page.getTotalElements();
 
-    @GetMapping("/parameters/countries/{field}")
-    public String  getAllWithSort(Model model,
-                                  @PathVariable("field") String field,
-                                  @PathParam("sortDir") String sortDir){
-        List<Country> countries;
-        countries = countryService.findAllWithSort(field, sortDir);
+        model.addAttribute("currentPage", currentPage);
+        model.addAttribute("totalPages", totalPages);
+        model.addAttribute("totalItems", totalItems);
 
         model.addAttribute("sortDir", sortDir);
-        model.addAttribute("reverseSortDir", sortDir.equals("asc")?"desc": "asc");
-
+        model.addAttribute("reverseSortDir", sortDir.equals("asc") ? "desc" : "asc");
         model.addAttribute("countries", countries);
         return "/parameters/countries";
     }

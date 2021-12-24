@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="_layout">
+
+<body>
+<div layout:fragment="content">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header"><i class="fa fa fa-bars"></i> Vehicle Hire Detail</h3>
+                <ol class="breadcrumb">
+                    <li><i class="fa fa-home"></i><a href="/fleet">Fleet Home</a></li>
+                    <li><i class="fa fa-bars"></i><a href="/fleet/hires">Vehicle Hires List</a></li>
+                    <li><i class="fa fa-square-o"></i>Vehicle Hire Details</li>
+                </ol>
+            </div>
+        </div>
+        <div class="container" style="width: 70%">
+            <form class="form-horizontal" th:action="@{/fleet/hires}" method="post">
+                <div class="row justify-content-center white-bg">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            Details Hire Record
+                        </header>
+                        <br>
+                        <div class="col-lg-6">
+                            <section class="panel">
+                                <div class="form-group row">
+                                    <label for="idAdd" class="col-sm-4 col-form-label">Id: </label>
+                                    <div class="col-sm-6">
+                                        <input type="text" th:value="${hire.id}" class="form-control" id="idAdd"
+                                               name="id" placeholder="Id" readonly>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="ddlVehicleAdd" class="col-sm-4 col-form-label">Vehicle: </label>
+                                    <div class="col-sm-6">
+                                        <select id="ddlVehicleAdd" name="vehicleid" class="form-control" readonly>
+                                            <option th:value="${null}">-SELECT-</option>
+                                            <option th:each="vehicle : ${vehicles}"
+                                                    th:selected="${vehicle.id}==${hire.vehicleid}?True:False"
+                                                    th:value="${vehicle.id}"
+                                                    th:text="${vehicle.name}">
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Client: </label>
+                                    <div class="col-sm-6">
+                                        <select name="clientid" class="form-control">
+                                            <option th:value="${null}">-SELECT-</option>
+                                            <option th:each="client : ${clients}"
+                                                    th:selected="${client.id}==${hire.clientid}?True:False"
+                                                    th:value="${client.id}"
+                                                    th:text="${client.name}">
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Date Out: </label>
+                                    <div class="col-sm-6">
+                                        <input type="date" class="form-control" th:field="${hire.dateOut}"
+                                               name="dateOut" placeholder="Date Out">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Time Out:</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" th:field="${hire.timeOut}"
+                                               name="timeOut" placeholder="Time Out">
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="col-lg-6">
+                            <section class="panel">
+                                <div class="form-group row">
+                                    <label for="ddlLocationAdd" class="col-sm-4 col-form-label">Destination: </label>
+                                    <div class="col-sm-6">
+                                        <select id="ddlLocationAdd" name="locationid" class="form-control">
+                                            <option th:value="${null}">-SELECT-</option>
+                                            <option th:each="location : ${locations}"
+                                                    th:selected="${location.id}==${hire.locationid}?True:False"
+                                                    th:value="${location.id}"
+                                                    th:text="${location.description}">
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Date In: </label>
+                                    <div class="col-sm-6">
+                                        <input type="date" class="form-control" th:field="${hire.dateIn}" name="dateIn"
+                                               placeholder="Date In">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Time In: </label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" th:value="${hire.timeIn}" name="timeIn"
+                                               placeholder="Time In">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Price: </label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" th:value="${hire.price}" name="price"
+                                               placeholder="Price">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Remarks</label>
+                                    <div class="col-sm-6">
+                                        <textarea class="form-control" th:field="${hire.remarks}" name="remarks"
+                                                  placeholder="Remarks" rows="3"></textarea>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </section>
+                </div>
+                <br>
+                <div class="row">
+                    <section class="panel">
+                        <div class="panel-body">
+                            <a th:href="@{'/fleet/hire/Edit/'+${hire.id}}" type="submit" class="btn btn-primary">
+                                Edit this record
+                            </a>
+                            <a href="/fleet/hires" class="btn  btn-warning">
+                                Exit
+                            </a>
+                        </div>
+                    </section>
+                </div>
+            </form>
+        </div>
+    </section>
+</div>
+</body>
+</html>

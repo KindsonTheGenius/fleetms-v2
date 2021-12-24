@@ -48,7 +48,9 @@
                     <tbody>
                     <tr>
                         <th></th>
-                        <th><i class="icon_profile"></i> <a th:href="@{'/parameters/countries/description?sortDir=' + ${reverseSortDir}}">Description</a></th>
+                        <th><i class="icon_profile"></i> <a
+                                th:href="@{'/parameters/countries/page/' + ${currentPage} + '/description?sortDir=' + ${reverseSortDir}}">Description</a>
+                        </th>
                         <th><i class="icon_calendar"></i> <a th:href="@{'/parameters/countries/capital?sortDir=' + ${reverseSortDir}}">Capital</a></th>
                         <th><i class="icon_mail_alt"></i> <a th:href="@{'/parameters/countries/code?sortDir=' + ${reverseSortDir}}">Code</a></th>
                         <th><i class="icon_pin_alt"></i> <a th:href="@{'/parameters/countries/nationality?sortDir=' + ${reverseSortDir}}">Nationality</a></th>
@@ -80,13 +82,43 @@
                     </tbody>
                 </table>
 
-                <footer class="panel-footer">
-                    Total Items: [[${totalItems}]] : Page [[${currentPage}]] of [[${totalPages}]]
-                    &nbsp; &nbsp; - &nbsp;
-                    <span th:each="i: ${#numbers.sequence(1, totalPages)}">
-                        <a th:href="@{'/parameters/countries/page/' + ${i}}">[[${i}]]</a>
-                        &nbsp; &nbsp;
-                    </span>
+                <footer style="font-size: large" class="panel-footer">
+                    <nav aria-label="Page navigation example">
+                        Total Items [[${totalItems}]] : Page [[${currentPage}]] of [[${totalPages}]]
+
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <a class="page-link" th:if="${currentPage > 1}"
+                                   th:href="@{/parameters/countries/page/1}">First</a>
+                                <span th:unless="${currentPage > 1}">First</span>
+                            </li>
+
+                            <li class="page-item">
+                                <a th:if="${currentPage > 1}"
+                                   th:href="@{'/parameters/countries/page/' + ${currentPage - 1}}">Previous</a>
+                                <span th:unless="${currentPage > 1}">Previous</span>
+                            </li>
+
+                            <li class="page-item">
+                                <span th:each="i: ${#numbers.sequence(1, totalPages)}">
+                                    <a th:href="@{'/parameters/countries/page/' + ${i}}">[[${i}]]</a>&nbsp; &nbsp;
+                                </span>
+                            </li>
+
+                            <li class="page-item">
+                                <a th:if="${currentPage < totalPages}"
+                                   th:href="@{'/parameters/countries/page/' + ${currentPage + 1}}">Next</a>
+                                <span th:unless="${currentPage < totalPages}">Next</span>
+                            </li>
+
+                            <li class="page-item">
+                                <a th:if="${currentPage < totalPages}"
+                                   th:href="@{'/parameters/countries/page/' + ${totalPages}}">Last</a>
+                                <span th:unless="${currentPage < totalPages}">Last</span>
+                            </li>
+                        </ul>
+                    </nav>
+
                 </footer>
             </section>
         </div>
