@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="_layout">
+<body>
+
+<div layout:fragment="content">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header"><i class="fa fa fa-bars"></i> Vehicle Models</h3>
+                <ol class="breadcrumb">
+                    <li><i class="fa fa-home"></i><a href="/index">Home</a></li>
+                    <li><i class="fa fa-bars"></i><a href="/fleet">Fleet Home</a></li>
+                    <li><i class="fa fa-square-o"></i>Vehicle Models</li>
+                </ol>
+            </div>
+        </div>
+        <div class="container">
+            <section class="panel">
+                <div style="padding: 10px">
+                    <form class="form-inline" role="form" th:action="@{/fleet/vehicleModels}" method="post">
+                        <div class="form-group">
+                            <label class="sr-only">Id</label>
+                            <input type="text" id="txtId" name="id" size="5" readonly class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only">Description</label>
+                            <input type="text" id="txtDescription" name="description" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only">Details</label>
+                            <input type="text" id="txtDetails" name="details" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="reset" class="btn btn-warning">Clear</button>
+
+                    </form>
+                </div>
+                <table class="table table-striped table-advance table-hover">
+                    <tbody>
+                    <tr>
+                        <th></th>
+                        <th><i class="icon_profile"></i> Description</th>
+                        <th><i class="icon_calendar"></i> Capital</th>
+                        <th><i class="icon_cogs"></i> Action</th>
+                    </tr>
+                    <tr th:each="vehicleModel:${vehicleModels}">
+                        <td><i class="fa fa-table"></i></td>
+                        <td th:text="${vehicleModel.description}"></td>
+                        <td th:text="${vehicleModel.details}"></td>
+                        <td>
+                            <div class="btn-group">
+                                <a id="display" th:href="@{'/fleet/vehicleModel/'+${vehicleModel.id}}"
+                                   class="btn btn-primary"><i class="icon_pencil-edit"></i></a>
+                                <a class="btn btn-success"><i class="icon_document_alt"></i></a>
+                                <a class="btn btn-danger" onclick="return confirm('Are you sure you want delete?')"
+                                   th:href="@{'/fleet/vehicleModel/delete/'+${vehicleModel.id}}">
+                                    <i class="icon_close_alt2"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </section>
+</div>
+
+<th:block layout:fragment="script">
+    <script language="JavaScript">
+        $('document').ready(function () {
+            $('.table #display').on('click', function (event) {
+                event.preventDefault();
+                var href = $(this).attr('href');
+                $.get(href, function (vehicleModel, status) {
+                    $('#txtId').val(vehicleModel.id);
+                    $('#txtDescription').val(vehicleModel.description);
+                    $('#txtDetails').val(vehicleModel.details);
+                })
+            })
+        })
+    </script>
+</th:block>
+
+</body>
+</html>

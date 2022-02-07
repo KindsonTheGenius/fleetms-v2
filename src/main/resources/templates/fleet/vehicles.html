@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="_layout">
+<body>
+
+<div layout:fragment="content">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header"><i class="fa fa fa-bars"></i> Vehicles</h3>
+                <ol class="breadcrumb">
+                    <li><i class="fa fa-home"></i><a href="/index">Home</a></li>
+                    <li><i class="fa fa-bars"></i><a href="/fleet">Fleet Home</a></li>
+                    <li><i class="fa fa-square-o"></i>Vehicle List</li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <section class="panel" style="margin-bottom: 0px;">
+                    <div class="panel-body">
+                        <a th:href="@{/fleet/vehicleAdd}" class="btn btn-primary">
+                            Add New Vehicle
+                        </a>
+                    </div>
+                </section>
+
+                <section class="panel">
+                    <header class="panel-heading">
+                        Vehicle
+                        <div class="modal fade" tabindex="-1" role="dialog" id="photoModal">
+                            <div class="modal-dialog" role="document" style="width: 50%">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Photo</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <img id="vehiclePhoto" src="" width="90%" height="90%">
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+
+                    <table class="table table-striped table-advance table-hover">
+                        <tbody>
+                        <tr>
+                            <th>Photo</th>
+                            <th><i class="icon_profile"></i> Id</th>
+                            <th><i class="icon_profile"></i> Name</th>
+                            <th><i class="icon_calendar"></i>Description</th>
+                            <th><i class="icon_mail_alt"></i> Acquisition Date</th>
+                            <th><i class="icon_cogs"></i> Action</th>
+                        </tr>
+                        <tr th:each="vehicle:${vehicles}">
+                            <td>
+                                <a id="photoButton" th:href="@{'/img/vehicles/' + ${vehicle.id} + '.jpg'}">
+                                    <img th:src="@{'/img/vehicles/' + ${vehicle.id} +'.jpg'}" width="40" height="40">
+                                </a>
+                            </td>
+                            <td th:text="${vehicle.id}">Id</td>
+                            <td th:text="${vehicle.name}">Name</td>
+                            <td th:text="${vehicle.description}">Description</td>
+                            <td th:text="${vehicle.acquisitionDate}">Acquisition Date</td>
+                            <td>
+                                <div class="btn-group">
+                                    <a class="btn btn-primary" id="editButton"
+                                       th:href="@{'/fleet/vehicle/Edit/'+${vehicle.id}}"><i
+                                            class="icon_pencil-edit"></i></a>
+                                    <a class="btn btn-success" id="detailsButton"
+                                       th:href="@{'/fleet/vehicle/Details/'+${vehicle.id}}"><i
+                                            class="icon_document_alt"></i></a>
+                                    <a class="btn btn-danger" id="deleteButton"
+                                       onclick="return confirm('Are you sure you want to delete this record?')"
+                                       th:href="@{'/fleet/vehicle/delete/'+${vehicle.id}}">
+                                        <i class="icon_close_alt2"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="panel-footer" style="padding: 10px">
+                        Number of Records: 12
+                    </div>
+                </section>
+            </div>
+        </div>
+        <!--Content of the page-->
+    </section>
+</div>
+
+<th:block layout:fragment="script">
+
+    <script language="JavaScript">
+        $('document').ready(function () {
+            $('.table #photoButton').on('click', function (event) {
+                event.preventDefault();
+                var href = $(this).attr('href');
+                $('#photoModal #vehiclePhoto').attr('src', href);
+                $('#photoModal').modal();
+            })
+        })
+    </script>
+
+</th:block>
+
+</body>
+</html>
