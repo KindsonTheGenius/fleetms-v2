@@ -38,7 +38,7 @@ spec:
   ports:
     - protocol: "TCP"
       port: 8080    # Port inside the cluster
-      targetPort:   # Port exposed to the outside
+      targetPort: 8080   # Port exposed to the outside
   selector:
     app: fleetms-v2
   type: NodePort
