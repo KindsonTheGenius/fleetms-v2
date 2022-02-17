@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="_layout">
+<body>
+
+<div layout:fragment="content">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header"><i class="fa fa fa-bars"></i> Helpdesk Reports</h3>
+                <ol class="breadcrumb">
+                    <li><i class="fa fa-home"></i><a href="/index">Home</a></li>
+                    <li><i class="fa fa-bars"></i><a href="/reports">Reports Home</a></li>
+                    <li><i class="fa fa-square-o"></i>Accounts Reports</li>
+                </ol>
+            </div>
+        </div>
+        <div class="container">
+            <section class="panel border-top">
+                <div class="panel-heading" style="padding: 10px">
+                    Helpdesk Reports for Q4 2021
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <section class="panel">
+                                <header class="panel-heading">
+                                    Line
+                                </header>
+                                <div class="panel-body text-center">
+                                    <canvas id="line" height="300" width="450"></canvas>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="col-lg-6">
+                            <section class="panel">
+                                <header class="panel-heading">
+                                    Bar
+                                </header>
+                                <div class="panel-body text-center">
+                                    <canvas id="bar" height="300" width="500"></canvas>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <section class="panel">
+                                <header class="panel-heading">
+                                    Radar
+                                </header>
+                                <div class="panel-body text-center">
+                                    <canvas id="radar" height="300" width="400"></canvas>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="col-lg-6">
+                            <section class="panel">
+                                <header class="panel-heading">
+                                    Polar Area
+                                </header>
+                                <div class="panel-body text-center">
+                                    <canvas id="polarArea" height="300" width="400"></canvas>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <section class="panel">
+                                <header class="panel-heading">
+                                    Pie
+                                </header>
+                                <div class="panel-body text-center">
+                                    <canvas id="pie" height="300" width="400"></canvas>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="col-lg-6">
+                            <section class="panel">
+                                <header class="panel-heading">
+                                    Doughnut
+                                </header>
+                                <div class="panel-body text-center">
+                                    <canvas id="doughnut" height="300" width="400"></canvas>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer" style="padding: 10px">
+                    End of Reports - The Genius Apps
+                </div>
+            </section>
+        </div>
+    </section>
+</div>
+<th:block layout:fragment="script">
+    <script th:src="@{/js/chartjs-custom.js}"></script>
+</th:block>
+</body>
+</html>

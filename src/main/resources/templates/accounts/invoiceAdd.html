@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="_layout">
+
+<body>
+
+<div layout:fragment="content">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header"><i class="fa fa fa-bars"></i> Invoice Add</h3>
+                <ol class="breadcrumb">
+                    <li><i class="fa fa-home"></i><a href="/accounts">Accounts Home</a></li>
+                    <li><i class="fa fa-bars"></i><a href="/accounts/invoices">Accounts List</a></li>
+                    <li><i class="fa fa-square-o"></i>Invoice Add</li>
+                </ol>
+            </div>
+        </div>
+        <div class="container" style="width: 70%">
+            <div class="row justify-content-center">
+                <div class="col-lg-12">
+                    <form class="form-horizontal" th:action="@{/parameters/invoices}" method="post">
+                        <section class="panel">
+                            <header class="panel-heading">
+                                Add New Invoice Record
+                            </header>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <label for="idAdd" class="col-form-label col-sm-4">Id:</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" id="idAdd" name="id" disabled>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="ddlClientAdd" class="col-form-label col-sm-4">Client: </label>
+                                    <div class="col-sm-6">
+                                        <select class="form-control" id="ddlClientAdd" name="clientid">
+                                            <option>-SELECT-</option>
+                                            <option th:each="client : ${clients}"
+                                                    th:value="${client.id}"
+                                                    th:text="${client.name}">
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="invoiceDateAdd" class="col-form-label col-sm-4">Invoice Date:</label>
+                                    <div class="col-sm-6">
+                                        <input type="date" class="form-control" id="invoiceDateAdd" name="invoiceDate">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="ddlInvoiceStatsAdd" class="col-form-label col-sm-4">Invoice
+                                        Status: </label>
+                                    <div class="col-sm-6">
+                                        <select class="form-control" id="ddlInvoiceStatusAdd" name="invoicestatusid">
+                                            <option>-SELECT-</option>
+                                            <option th:each="invoiceStatus : ${invoiceStatuses}"
+                                                    th:value="${invoiceStatus.id}"
+                                                    th:text="${invoiceStatus.description}">
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="remarksAdd" class="col-form-label col-sm-4">Remarks:</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" id="remarksAdd" name="remarks">
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="panel">
+
+                            <div class="panel-body">
+                                <button type="submit" class="btn btn-primary">
+                                    Save
+                                </button>
+                                <a href="/countries" class="btn  btn-warning">
+                                    Exit
+                                </a>
+                            </div>
+                        </section>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+</body>
+</html>

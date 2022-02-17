@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="_layout">
+<body>
+
+<div layout:fragment="content">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header"><i class="fa fa fa-bars"></i> Transaction Edit</h3>
+                <ol class="breadcrumb">
+                    <li><i class="fa fa-home"></i><a href="/accounts">Accounts Home</a></li>
+                    <li><i class="fa fa-bars"></i><a href="/accounts/transactions">Transactions List</a></li>
+                    <li><i class="fa fa-square-o"></i>Transaction Edit</li>
+                </ol>
+            </div>
+        </div>
+        <div class="container" style="width: 70%">
+            <div class="row justify-content-center">
+                <div class="col-lg-12">
+                    <form class="form-horizontal" th:action="@{/accounts/transactions}" method="post">
+                        <section class="panel">
+                            <header class="panel-heading">
+                                Editing Transaction Record
+                            </header>
+                            <div class="panel-body">
+                                <div class="col-lg-6">
+                                    <section class="panel">
+                                        <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label">Trasaction Id:</label>
+                                            <div class="col-sm-6">
+                                                <input type="number" th:value="${transaction.id}" class="form-control"
+                                                       name="id" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label">Amount:</label>
+                                            <div class="col-sm-6">
+                                                <input type="number" th:value="${transaction.amount}"
+                                                       class="form-control" name="amount">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label">Purpose:</label>
+                                            <div class="col-sm-6">
+                                                <textarea type="text" th:field="${transaction.purpose}"
+                                                          class="form-control" name="purpose"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label">Date:</label>
+                                            <div class="col-sm-6">
+                                                <input type="date" th:field="${transaction.transactionDate}"
+                                                       class="form-control" name="transactionDate">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-sm-4">Transaction Status: </label>
+                                            <div class="col-sm-6">
+                                                <select class="form-control" name="transactionstatusid">
+                                                    <option th:value="${null}">-SELECT-</option>
+                                                    <option th:each="transactionStatus : ${transactionStatuses}"
+                                                            th:selected="${transactionStatus.id} == ${transaction.transactionstatusid}?True:False"
+                                                            th:value="${transactionStatus.id}"
+                                                            th:text="${transactionStatus.description}">
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-sm-4">Transaction Type: </label>
+                                            <div class="col-sm-6">
+                                                <select class="form-control" name="transactiontypeid">
+                                                    <option th:value="${null}">-SELECT-</option>
+                                                    <option th:each="transactionType : ${transactionTypes}"
+                                                            th:selected="${transactionType.id} == ${transaction.transactiontypeid}?True:False"
+                                                            th:value="${transactionType.id}"
+                                                            th:text="${transactionType.description}">
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                                <div class="col-lg-6">
+                                    <section class="panel">
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-sm-4">Contact </label>
+                                            <div class="col-sm-6">
+                                                <select class="form-control" name="contactid">
+                                                    <option th:value="${null}">-SELECT-</option>
+                                                    <option th:each="contact : ${contacts}"
+                                                            th:selected="${contact.id} == ${transaction.contactid}?True:False"
+                                                            th:value="${contact.id}"
+                                                            th:text="${contact.firstname} + ' ' + ${contact.lastname}">
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-sm-4">Supplier </label>
+                                            <div class="col-sm-6">
+                                                <select class="form-control" name="supplierid">
+                                                    <option th:value="${null}">-SELECT-</option>
+                                                    <option th:each="supplier : ${suppliers}"
+                                                            th:selected="${supplier.id} == ${transaction.supplierid}?True:False"
+                                                            th:value="${supplier.id}"
+                                                            th:text="${supplier.name}">
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-sm-4">Client </label>
+                                            <div class="col-sm-6">
+                                                <select class="form-control" name="clientid">
+                                                    <option th:value="${null}">-SELECT-</option>
+                                                    <option th:each="client : ${clients}"
+                                                            th:selected="${client.id} == ${transaction.clientid}?True:False"
+                                                            th:value="${client.id}"
+                                                            th:text="${client.name}">
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-sm-4">Approved By </label>
+                                            <div class="col-sm-6">
+                                                <select class="form-control" name="employeeid">
+                                                    <option th:value="${null}">-SELECT-</option>
+                                                    <option th:each="employee : ${employees}"
+                                                            th:selected="${employee.id} == ${transaction.employeeid}?True:False"
+                                                            th:value="${employee.id}"
+                                                            th:text="${employee.fullName}">
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-sm-4">Remarks:</label>
+                                            <div class="col-sm-6">
+                                                <textarea type="text" th:field="${transaction.remarks}"
+                                                          class="form-control" name="remarks"></textarea>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="panel">
+                            <div class="panel-body">
+                                <button type="submit" class="btn btn-primary">
+                                    Save
+                                </button>
+                                <a href="/accounts/transactions" class="btn  btn-warning">
+                                    Exit
+                                </a>
+                            </div>
+                        </section>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+</body>
+</html>

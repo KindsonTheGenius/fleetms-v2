@@ -21,4 +21,9 @@ public class SecurityController {
     public String homePage() {
         return "index";
     }
+
+    @GetMapping("/accessDenied")
+    public String accessDenied() {
+        return "accessDenied";
+    }
 }

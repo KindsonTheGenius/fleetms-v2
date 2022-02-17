@@ -20,8 +20,16 @@ public class UserPrincipal implements UserDetails {
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return Collections.singleton(new SimpleGrantedAuthority("USER"));
-	}
+
+        List<GrantedAuthority> authorities = new ArrayList<>();
+
+        for (Role role : user.getRoles()) {
+            authorities.add(new SimpleGrantedAuthority(role.getDescription()));
+        }
+        return authorities;
+
+        //return Collections.singleton(new SimpleGrantedAuthority("USER"));
+    }
 
 	@Override
 	public String getPassword() {
