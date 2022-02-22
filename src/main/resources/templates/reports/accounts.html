@@ -97,6 +97,7 @@
 <th:block layout:fragment="script">
     <script th:inline="javascript">
         var transactions = [[${transactions}]]
+        var employeeCount = [[${employeeCount}]]
     </script>
     <script th:src="@{/js/chartjs-custom.js}"></script>
 </th:block>

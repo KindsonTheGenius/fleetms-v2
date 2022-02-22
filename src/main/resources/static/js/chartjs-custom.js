@@ -1,14 +1,19 @@
 $(document).ready(function() {
 
+    var count_x = employeeCount.map(x => x[0])
+    var count_y = employeeCount.map(x => x[1])
+
+    var transaction_y = transactions.map(x => x["amount"])
+    var transaction_x = transactions.map(x => x["purpose"])
 
     var doughnutData = [
         {
             value: 30,
-            color:"#F7464A"
+            color: "#F7464A"
         },
         {
-            value : 50,
-            color : "#46BFBD"
+            value: 50,
+            color: "#46BFBD"
         },
         {
             value : 100,
@@ -25,21 +30,21 @@ $(document).ready(function() {
 
     ];
     var lineChartData = {
-        labels: ["KIndson", "", "", "", "", "", ""],
+        labels: transaction_x,
         datasets: [
             {
                 fillColor: "rgba(220,220,220,0.5)",
                 strokeColor: "rgba(220,220,220,1)",
                 pointColor: "rgba(220,220,220,1)",
                 pointStrokeColor: "#fff",
-                data: [65, 59, 90, 81, 56, 55, 40]
+                data: transaction_y
             },
             {
                 fillColor: "rgba(151,187,205,0.5)",
                 strokeColor : "rgba(151,187,205,1)",
                 pointColor : "rgba(151,187,205,1)",
                 pointStrokeColor : "#fff",
-                data : [28,48,40,19,96,27,100]
+                data: [2800, 1148, 4000, 19000, 9600, 2700, 10000]
             }
         ]
 
@@ -59,18 +64,19 @@ $(document).ready(function() {
         }
 
     ];
+
     var barChartData = {
-        labels : ["January","February","March","April","May","June","July"],
-        datasets : [
+        labels: count_x,
+        datasets: [
             {
-                fillColor : "rgba(220,220,220,0.5)",
-                strokeColor : "rgba(220,220,220,1)",
-                data : [65,59,90,81,56,55,40]
+                fillColor: "rgba(220,220,220,0.5)",
+                strokeColor: "rgba(220,220,220,1)",
+                data: count_y
             },
             {
-                fillColor : "rgba(151,187,205,0.5)",
-                strokeColor : "rgba(151,187,205,1)",
-                data : [28,48,40,19,96,27,100]
+                fillColor: "rgba(151,187,205,0.5)",
+                strokeColor: "rgba(151,187,205,1)",
+                data: [1, 2, 4, 3, 1, 5, 2]
             }
         ]
 
