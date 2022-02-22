@@ -14,7 +14,7 @@
 	<name>fleetmsv2</name>
 	<description>Fleet Management Sytem v.2</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>8</java.version>
 	</properties>
 	<dependencies>
 
