@@ -3,12 +3,17 @@ package com.kindsonthegenius.fleetmsv2.helpdesk.models;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.kindsonthegenius.fleetmsv2.hr.models.Employee;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -30,9 +35,9 @@ public class Ticket {
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date closeDate;
-	
+
 	@ManyToOne
-	@JoinColumn(name="ticketstatusid", insertable=false, updatable=false)	
+	@JoinColumn(name = "ticketstatusid", insertable = false, updatable = false)
 	private TicketStatus ticketStatus;
 	private Integer ticketstatusid;
 	

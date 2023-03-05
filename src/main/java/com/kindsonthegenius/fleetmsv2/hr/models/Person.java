@@ -2,13 +2,18 @@ package com.kindsonthegenius.fleetmsv2.hr.models;
 
 import com.kindsonthegenius.fleetmsv2.parameters.models.Country;
 import com.kindsonthegenius.fleetmsv2.parameters.models.State;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.MappedSuperclass;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Formula;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.*;
 import java.util.Date;
 
 @Data
