@@ -1,10 +1,10 @@
 package com.kindsonthegenius.fleetmsv2.security.models;
 
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,10 +12,10 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Table(name = "\"User\"")
+@Table(name = "users")
 public class User {
 
-    @Id
+    @jakarta.persistence.Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer Id;
     private String firstname;

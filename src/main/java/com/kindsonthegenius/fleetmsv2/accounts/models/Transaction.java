@@ -6,11 +6,16 @@ import com.kindsonthegenius.fleetmsv2.hr.models.Employee;
 import com.kindsonthegenius.fleetmsv2.parameters.models.Client;
 import com.kindsonthegenius.fleetmsv2.parameters.models.Contact;
 import com.kindsonthegenius.fleetmsv2.parameters.models.Supplier;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.*;
 import java.util.Date;
 
 @Entity
