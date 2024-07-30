@@ -41,7 +41,7 @@
 
 <div class="container">
 
-    <form class="login-form" th:action="@{/users/addNew}" method="post">
+    <form class="login-form" th:action="@{/usersAddNew}" method="post">
         <div class="login-wrap">
             <p class="login-img"><i class="icon_lock_alt"></i></p>
 
@@ -61,13 +61,31 @@
             </div>
 
             <div class="input-group">
-                <span class="input-group-addon"><i class="icon_key_alt"></i></span>
-                <input type="password" class="form-control" placeholder="Password" id="password" name="password">
+                <span class="input-group-addon"><i class="icon_profile"></i></span>
+                <input type="text" class="form-control" placeholder="Email" name="email" autofocus>
             </div>
 
             <div class="input-group">
                 <span class="input-group-addon"><i class="icon_key_alt"></i></span>
-                <input type="password" class="form-control" placeholder="Confirm Password" id="confirmPassword">
+                <input type="password" class="form-control"
+                       placeholder="Password"
+                       id="password"
+                       name="password"
+                       title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                       onkeyup="onChange()"
+                       pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                       required>
+            </div>
+
+            <div class="input-group">
+                <span class="input-group-addon"><i class="icon_key_alt"></i></span>
+                <input type="password"
+                       class="form-control"
+                       placeholder="Confirm Password"
+                       id="confirmPassword"
+                       name="confirm"
+                       onkeyup="onChange()"
+                       required>
             </div>
 
             <label class="checkbox">
@@ -90,6 +108,17 @@
     </div>
 </div>
 
+<script>
+    function onChange() {
+        const password = document.querySelector('input[name=password]');
+        const confirm = document.querySelector('input[name=confirm]');
+        if (confirm.value === password.value) {
+            confirm.setCustomValidity('');
+        } else {
+            confirm.setCustomValidity('Passwords do not match');
+        }
+    }
+</script>
 
 <!-- javascripts -->
 <script src="js/jquery.js"></script>

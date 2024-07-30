@@ -1,9 +1,12 @@
 package com.kindsonthegenius.fleetmsv2.security.controllers;
 
+import com.kindsonthegenius.fleetmsv2.exception.UserAlreadyExistException;
 import com.kindsonthegenius.fleetmsv2.security.models.User;
 import com.kindsonthegenius.fleetmsv2.security.services.RoleService;
 import com.kindsonthegenius.fleetmsv2.security.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +25,9 @@ public class UserController {
     @Autowired
     private RoleService roleService;
 
+    @Autowired
+    private MessageSource messageSource;
+
     @GetMapping("/security/users")
     public String getAll(Model model) {
         model.addAttribute("users", userService.findAll());
@@ -37,13 +43,13 @@ public class UserController {
         return "/security/user" + op; //returns employeeEdit or employeeDetails
     }
 
-    @PostMapping("/users/addNew")
-    public RedirectView addNew(User user, RedirectAttributes redir) {
-        userService.save(user);
+    @PostMapping("/usersAddNew")
+    public String addNew(User user, Model model, RedirectAttributes redir) throws UserAlreadyExistException {
+        userService.register(user);
 
-        RedirectView redirectView = new RedirectView("/login", true);
-        redir.addFlashAttribute("message", "You have successfully registered a new user!");
-        return redirectView;
+        model.addAttribute("registrationSuccess",
+                messageSource.getMessage("user.registration.verification.email.msg", null, LocaleContextHolder.getLocale()));
+        return "security/registrationSucessful";
     }
 
 }
