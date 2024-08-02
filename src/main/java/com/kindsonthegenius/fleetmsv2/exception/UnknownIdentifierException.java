@@ -3,19 +3,19 @@ package com.kindsonthegenius.fleetmsv2.exception;
 /*
 In case customer account does not exists in the system for a given email id.
  */
-public class UnkownIdentifierException extends Exception {
+public class UnknownIdentifierException extends Exception {
 
-    public UnkownIdentifierException() {
+    public UnknownIdentifierException() {
         super();
     }
 
 
-    public UnkownIdentifierException(String message) {
+    public UnknownIdentifierException(String message) {
         super(message);
     }
 
 
-    public UnkownIdentifierException(String message, Throwable cause) {
+    public UnknownIdentifierException(String message, Throwable cause) {
         super(message, cause);
     }
 }
