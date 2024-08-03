@@ -12,11 +12,6 @@ public class SecurityController {
         return "security/login";
     }
 
-    @GetMapping("/forgotPassword")
-    public String forgotPassword() {
-        return "security/forgotPassword";
-    }
-
     @GetMapping("/register")
     public String register() {
         return "security/register";
