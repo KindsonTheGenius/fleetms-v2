@@ -1,5 +1,6 @@
 package com.kindsonthegenius.fleetmsv2.security.controllers;
 
+import com.kindsonthegenius.fleetmsv2.exception.UserAlreadyExistException;
 import com.kindsonthegenius.fleetmsv2.security.models.User;
 import com.kindsonthegenius.fleetmsv2.security.services.RoleService;
 import com.kindsonthegenius.fleetmsv2.security.services.UserService;
@@ -41,13 +42,15 @@ public class UserController {
         return "/security/user" + op; //returns employeeEdit or employeeDetails
     }
 
-    @PostMapping("/users/addNew")
-    public RedirectView addNew(User user, RedirectAttributes redir) {
-        userService.save(user);
+    @PostMapping("/usersAddNew")
+    public String addNew(User user, Model model) throws UserAlreadyExistException {
+        userService.register(user);
 
-        RedirectView redirectView = new RedirectView("/login", true);
-        redir.addFlashAttribute("message", "You have successfully registered a new user!");
-        return redirectView;
+//        RedirectView redirectView = new RedirectView("/login", true);
+        model.addAttribute("registrationSuccess",
+                "You can check your email to complete your registration");
+        return "security/registrationSuccessful";
     }
+
 
 }

@@ -24,4 +24,8 @@ public class SecureToken {
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
+
+    public boolean isExpired() {
+        return getExpiredAt().isBefore(LocalDateTime.now());
+    }
 }
